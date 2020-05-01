@@ -1,0 +1,22 @@
+﻿@model FashionStore.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<p>Hoặc kết nối với</p>
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() > 0)
+    {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList">
+                <p>
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        <button type="submit" class="btn btn-@p.AuthenticationType.ToLower() btn-user btn-block" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType"><i class="fab fa-@p.AuthenticationType.ToLower() fa-fw"></i> @p.AuthenticationType</button>
+                    }
+                </p>
+            </div>
+        }
+    }
+}
