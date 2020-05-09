@@ -1,0 +1,82 @@
+@using FashionStore.Extensions;
+@model FashionStore.Models.Category
+@using FashionStore.Models;
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Category detail";
+    var childrenCates = (List<Category>)ViewBag.ChildrenCates;
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Category detail</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    @Html.Raw(Html.BuildBreadcrumbNavigation())
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CategoryName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Active)
+                </dt>
+
+                <dd>
+                    @Html.DisplayTextFor(model => model.Active)
+                </dd>
+
+                <dt>
+                    Children categories
+                </dt>
+
+                <dd>
+
+                    <ul class="list-group">
+                        @foreach (Category cate in childrenCates)
+                        {
+                            <li class="list-group-item">
+                                <span>@cate.CategoryName</span>
+                                &nbsp;&nbsp;
+                                @Html.ActionLink("Edit", "Edit", new { id = cate.CategoryId }) |
+                                @Html.ActionLink("Details", "Details", new { id = cate.CategoryId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = cate.CategoryId })
+                            </li>
+                        }
+                    </ul>
+                </dd>
+            </dl>
+        </div><!-- /.container-fluid -->
+        <p class="ml-2">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </section>
+    <!-- /.content -->
+
+</div>

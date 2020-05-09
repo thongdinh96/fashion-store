@@ -1,10 +1,10 @@
-﻿<!-- Preloader Start -->
+<!-- Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="assets/img/logo/logo.png" alt="">
+                <img src="~/assets/img/logo/logo.png" alt="">
             </div>
         </div>
     </div>
@@ -17,12 +17,12 @@
     <div class="slider-area ">
         <!-- Mobile Menu -->
         <div class="slider-active">
-            <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
+            <div class="single-slider slider-height" data-background="~/assets/img/hero/h1_hero.jpg">
                 <div class="container">
                     <div class="row d-flex align-items-center justify-content-between">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
                             <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                <img src="assets/img/hero/hero_man.png" alt="">
+                                <img src="~/assets/img/hero/hero_man.png" alt="">
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
@@ -39,12 +39,12 @@
                     </div>
                 </div>
             </div>
-            <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
+            <div class="single-slider slider-height" data-background="~/assets/img/hero/h1_hero.jpg">
                 <div class="container">
                     <div class="row d-flex align-items-center justify-content-between">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
                             <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                <img src="assets/img/hero/hero_man.png" alt="">
+                                <img src="~/assets/img/hero/hero_man.png" alt="">
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
@@ -79,7 +79,7 @@
                 <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img">
-                            <img src="assets/img/categori/cat1.jpg" alt="">
+                            <img src="~/assets/img/categori/cat1.jpg" alt="">
                             <div class="category-caption">
                                 <h2>Owmen`s</h2>
                                 <span class="best"><a href="#">Best New Deals</a></span>
@@ -91,7 +91,7 @@
                 <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img text-center">
-                            <img src="assets/img/categori/cat2.jpg" alt="">
+                            <img src="~/assets/img/categori/cat2.jpg" alt="">
                             <div class="category-caption">
                                 <span class="collection">Discount!</span>
                                 <h2>Winter Cloth</h2>
@@ -103,7 +103,7 @@
                 <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img">
-                            <img src="assets/img/categori/cat3.jpg" alt="">
+                            <img src="~/assets/img/categori/cat3.jpg" alt="">
                             <div class="category-caption">
                                 <h2>Man`s Cloth</h2>
                                 <span class="best"><a href="#">Best New Deals</a></span>
@@ -131,8 +131,7 @@
                         <!--Nav Button  -->
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
+                                <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">New</a>
                                 <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Featured</a>
                                 <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Offer</a>
                             </div>
@@ -143,13 +142,58 @@
             </div>
             <!-- Nav Card -->
             <div class="tab-content" id="nav-tabContent">
-                <!-- card one -->
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product1.png" alt="">
+                                    <img src="~/assets/img/categori/product4.png" alt="">
+                                </div>
+                                <div class="product-caption">
+                                    <div class="product-ratting">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star low-star"></i>
+                                        <i class="far fa-star low-star"></i>
+                                    </div>
+                                    <h4><a href="#">Green Dress with details</a></h4>
+                                    <div class="price">
+                                        <ul>
+                                            <li>$40.00</li>
+                                            <li class="discount">$60.00</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-product mb-60">
+                                <div class="product-img">
+                                    <img src="~/assets/img/categori/product5.png" alt="">
+                                </div>
+                                <div class="product-caption">
+                                    <div class="product-ratting">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star low-star"></i>
+                                        <i class="far fa-star low-star"></i>
+                                    </div>
+                                    <h4><a href="#">Green Dress with details</a></h4>
+                                    <div class="price">
+                                        <ul>
+                                            <li>$40.00</li>
+                                            <li class="discount">$60.00</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-product mb-60">
+                                <div class="product-img">
+                                    <img src="~/assets/img/categori/product6.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -175,7 +219,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product2.png" alt="">
+                                    <img src="~/assets/img/categori/product2.png" alt="">
                                 </div>
                                 <div class="product-caption">
                                     <div class="product-ratting">
@@ -198,7 +242,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product3.png" alt="">
+                                    <img src="~/assets/img/categori/product3.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -224,205 +268,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>New</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card two -->
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>New</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>New</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$40.00</li>
-                                            <li class="discount">$60.00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="assets/img/categori/product1.png" alt="">
+                                    <img src="~/assets/img/categori/product1.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -453,7 +299,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product2.png" alt="">
+                                    <img src="~/assets/img/categori/product2.png" alt="">
                                 </div>
                                 <div class="product-caption">
                                     <div class="product-ratting">
@@ -476,7 +322,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product3.png" alt="">
+                                    <img src="~/assets/img/categori/product3.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -502,7 +348,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product1.png" alt="">
+                                    <img src="~/assets/img/categori/product1.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -528,7 +374,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product4.png" alt="">
+                                    <img src="~/assets/img/categori/product4.png" alt="">
                                 </div>
                                 <div class="product-caption">
                                     <div class="product-ratting">
@@ -551,7 +397,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product6.png" alt="">
+                                    <img src="~/assets/img/categori/product6.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -577,7 +423,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product5.png" alt="">
+                                    <img src="~/assets/img/categori/product5.png" alt="">
                                 </div>
                                 <div class="product-caption">
                                     <div class="product-ratting">
@@ -605,7 +451,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product1.png" alt="">
+                                    <img src="~/assets/img/categori/product1.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -631,7 +477,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product2.png" alt="">
+                                    <img src="~/assets/img/categori/product2.png" alt="">
                                 </div>
                                 <div class="product-caption">
                                     <div class="product-ratting">
@@ -654,7 +500,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product3.png" alt="">
+                                    <img src="~/assets/img/categori/product3.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -680,7 +526,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product4.png" alt="">
+                                    <img src="~/assets/img/categori/product4.png" alt="">
                                 </div>
                                 <div class="product-caption">
                                     <div class="product-ratting">
@@ -703,7 +549,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product5.png" alt="">
+                                    <img src="~/assets/img/categori/product5.png" alt="">
                                 </div>
                                 <div class="product-caption">
                                     <div class="product-ratting">
@@ -726,7 +572,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-product mb-60">
                                 <div class="product-img">
-                                    <img src="assets/img/categori/product6.png" alt="">
+                                    <img src="~/assets/img/categori/product6.png" alt="">
                                     <div class="new-product">
                                         <span>New</span>
                                     </div>
@@ -756,35 +602,6 @@
         </div>
     </section>
     <!-- Latest Products End -->
-    <!-- Best Product Start -->
-    <div class="best-product-area lf-padding">
-        <div class="product-wrapper bg-height" style="background-image: url('assets/img/categori/card.png')">
-            <div class="container position-relative">
-                <div class="row justify-content-between align-items-end">
-                    <div class="product-man position-absolute  d-none d-lg-block">
-                        <img src="assets/img/categori/card-man.png" alt="">
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 d-none d-lg-block">
-                        <div class="vertical-text">
-                            <span>Manz</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-8 col-lg-8">
-                        <div class="best-product-caption">
-                            <h2>Find The Best Product<br> from Our Shop</h2>
-                            <p>Designers who are interesten creating state ofthe.</p>
-                            <a href="#" class="black-btn">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Shape -->
-        <div class="shape bounce-animate d-none d-md-block">
-            <img src="assets/img/categori/card-shape.png" alt="">
-        </div>
-    </div>
-    <!-- Best Product End-->
     <!-- Best Collection Start -->
     <div class="best-collection-area section-padding2">
         <div class="container">
@@ -797,13 +614,13 @@
                         <a href="#" class="btn shop1-btn">Shop Now</a>
                     </div>
                     <div class="best-left-img mb-30 d-none d-sm-block">
-                        <img src="assets/img/collection/collection1.png" alt="">
+                        <img src="~/assets/img/collection/collection1.png" alt="">
                     </div>
                 </div>
                 <!-- Mid Img -->
                 <div class="col-xl-2 col-lg-2 d-none d-lg-block">
                     <div class="best-mid-img mb-30 ">
-                        <img src="assets/img/collection/collection2.png" alt="">
+                        <img src="~/assets/img/collection/collection2.png" alt="">
                     </div>
                 </div>
                 <!-- Riht Caption -->
@@ -814,7 +631,7 @@
                                 <h4>Menz Winter<br> Jacket</h4>
                             </div>
                             <div class="single-img">
-                                <img src="assets/img/collection/collection3.png" alt="">
+                                <img src="~/assets/img/collection/collection3.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -824,7 +641,7 @@
                                 <h4>Menz Winter<br>Jacket</h4>
                             </div>
                             <div class="single-img">
-                                <img src="assets/img/collection/collection4.png" alt="">
+                                <img src="~/assets/img/collection/collection4.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -834,7 +651,7 @@
                                 <h4>Menz Winter<br> Jacket</h4>
                             </div>
                             <div class="single-img">
-                                <img src="assets/img/collection/collection5.png" alt="">
+                                <img src="~/assets/img/collection/collection5.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -845,20 +662,20 @@
     <!-- Best Collection End -->
     <!-- Latest Offers Start -->
     <div class="latest-wrapper lf-padding">
-        <div class="latest-area latest-height d-flex align-items-center" data-background="assets/img/collection/latest-offer.png">
+        <div class="latest-area latest-height d-flex align-items-center" data-background="~/assets/img/collection/latest-offer.png">
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-xl-5 col-lg-5 col-md-6 offset-xl-1 offset-lg-1">
                         <div class="latest-caption">
                             <h2>Get Our<br>Latest Offers News</h2>
-                            <p>Subscribe news latter</p>
+                            <p>Subscribe news letter</p>
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-5 col-md-6 ">
                         <div class="latest-subscribe">
                             <form action="#">
                                 <input type="email" placeholder="Your email here">
-                                <button>Shop Now</button>
+                                <button>Subscribe</button>
                             </form>
                         </div>
                     </div>
@@ -866,7 +683,7 @@
             </div>
             <!-- man Shape -->
             <div class="man-shape">
-                <img src="assets/img/collection/latest-man.png" alt="">
+                <img src="~/assets/img/collection/latest-man.png" alt="">
             </div>
         </div>
     </div>
@@ -906,19 +723,19 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="gallery-items">
-                        <img src="assets/img/gallery/gallery1.jpg" alt="">
+                        <img src="~/assets/img/gallery/gallery1.jpg" alt="">
                     </div>
                     <div class="gallery-items">
-                        <img src="assets/img/gallery/gallery2.jpg" alt="">
+                        <img src="~/assets/img/gallery/gallery2.jpg" alt="">
                     </div>
                     <div class="gallery-items">
-                        <img src="assets/img/gallery/gallery3.jpg" alt="">
+                        <img src="~/assets/img/gallery/gallery3.jpg" alt="">
                     </div>
                     <div class="gallery-items">
-                        <img src="assets/img/gallery/gallery4.jpg" alt="">
+                        <img src="~/assets/img/gallery/gallery4.jpg" alt="">
                     </div>
                     <div class="gallery-items">
-                        <img src="assets/img/gallery/gallery5.jpg" alt="">
+                        <img src="~/assets/img/gallery/gallery5.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -938,7 +755,7 @@
                         <div class="single-footer-caption mb-30">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                <a href="index.html"><img src="~/assets/img/logo/logo2_footer.png" alt=""></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">

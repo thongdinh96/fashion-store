@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -392,6 +392,13 @@ namespace FashionStore.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+            if (Request.UrlReferrer.AbsolutePath.ToLower().Contains("admin"))
+            {
+                return RedirectToAction("login", "admin");
+
+            }
+
             return RedirectToAction("Index", "Home");
         }
 

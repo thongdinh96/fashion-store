@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -53,9 +54,30 @@ namespace FashionStore.Models
 
         public string Note { get; set; }
 
+        public int CollectionId { get; set; }
+
+        public Collection Collection { get; set; }
+
         public virtual Supplier Supplier { get; set; }
 
         public virtual Category Category { get; set; }
+    }
+
+    public class Collection
+    {
+        public int CollectionId { get; set; }
+
+        public string CollectionName { get; set; }
+
+        public DateTime Created { get; set; }
+
+        public DateTime Modified { get; set; }
+
+        public int Discount { get; set; }
+
+        public DateTime DiscountFrom { get; set; }
+
+        public DateTime DiscountTo { get; set; }
     }
 
     public class Supplier
@@ -73,10 +95,6 @@ namespace FashionStore.Models
         public string Fax { get; set; }
 
         public string Email { get; set; }
-
-        public int PaymentMethodId { get; set; }
-
-        public virtual PaymentMethod PaymentMethod { get; set; }
     }
 
     public class PaymentMethod
@@ -92,10 +110,12 @@ namespace FashionStore.Models
     {
         public int CategoryId { get; set; }
 
+        [Display(Name = "Category name")]
         public string CategoryName { get; set; }
 
         public string Description { get; set; }
 
+        [Display(Name = "Category parent")]
         public int CategoryParentId { get; set; }
 
         public string Picture { get; set; }
