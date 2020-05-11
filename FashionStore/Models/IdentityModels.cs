@@ -47,5 +47,7 @@ namespace FashionStore.Models
         public DbSet<Shipper> Shippers { get; set; }
 
         public DbSet<OrderDetail> OrderDetails { get; set; }
+
+        public DbSet<StoreConfiguration> StoreConfigurations { get; set; }
     }
 }

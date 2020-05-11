@@ -31,6 +31,10 @@
     <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <!-- Navbar -->
@@ -201,7 +205,7 @@
                     </li>
                     <li class="nav-header">Product management</li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a id="productLst" href="@Url.Action("index", "products")" class="nav-link">
                             <i class="nav-icon fas fa-list"></i>
                             <p>
                                 List product
@@ -209,7 +213,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a id="productCreate" href="@Url.Action("create", "products")" class="nav-link">
                             <i class="nav-icon fas fa-plus-circle"></i>
                             <p>
                                 Add product
@@ -239,8 +243,12 @@
     <!-- ./wrapper -->
     <!-- jQuery -->
     <script src="~/plugins/jquery/jquery.min.js"></script>
+
     <!-- jQuery UI 1.11.4 -->
+    @*<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>*@
     <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -272,11 +280,12 @@
     <!-- AdminLTE for demo purposes -->
     <script src="~/dist/js/demo.js"></script>
     <script>
-        @{
-            string activeId = ViewBag.ActiveItem;
-        }
-        $("#@activeId").addClass("active");
+    @{
+        string activeId = ViewBag.ActiveItem;
+}
+$("#@activeId").addClass("active");
     </script>
+    <script src="~/Scripts/custom-product.js"></script>
     @RenderSection("scripts", required: false)
 
 </body>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,8 @@ namespace FashionStore.Models
     public enum SizeEnum
     {
         S,
+        XS,
+        M,
         L,
         XL,
         XXL
@@ -22,62 +25,84 @@ namespace FashionStore.Models
         Cancelled
     }
     
+
     public class Product
     {
         public int ProductId { get; set; }
 
+        [Display(Name ="Product name")]
         public string ProductName { get; set; }
 
         public int CategoryId { get; set; }
 
-        public int SupplierId { get; set; }
+        public int? SupplierId { get; set; }
 
+        [Display(Name = "Unit price")]
         public decimal UnitPrice { get; set; }
-
-        public SizeEnum Size { get; set; }
 
         public string Color { get; set; }
 
-        public float Discount { get; set; }
+        public float? Discount { get; set; }
 
-        public int UnitsInStock { get; set; }
+        [Display(Name = "Units in stock")]
+        public int? UnitsInStock { get; set; }
 
-        public int UnitsOnOrder { get; set; }
+        [Display(Name = "Units on order")]
+        public int? UnitsOnOrder { get; set; }
 
+        [Display(Name = "Product available")]
         public bool ProductAvailable { get; set; }
-
-        public bool DiscountAvailable { get; set; }
 
         public string Picture { get; set; }
 
-        public int Ranking { get; set; }
+        public int? Ranking { get; set; }
 
         public string Note { get; set; }
 
-        public int CollectionId { get; set; }
+        public int? CollectionId { get; set; }
 
         public Collection Collection { get; set; }
 
         public virtual Supplier Supplier { get; set; }
 
         public virtual Category Category { get; set; }
+
+        public DateTime Created { get; set; }
+
+        public DateTime? Modified { get; set; }
+
+        public virtual ICollection<Size> Sizes { get; set; }
+    }
+
+    public class Size
+    {
+        [Key, Column(Order = 0)]
+        public SizeEnum SizeName { get; set; }
+
+        public int Amount { get; set; }
+
+        [Key, Column(Order = 1)]
+        public int ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
     }
 
     public class Collection
     {
         public int CollectionId { get; set; }
 
+        [Display(Name = "Collection name")]
         public string CollectionName { get; set; }
 
         public DateTime Created { get; set; }
 
-        public DateTime Modified { get; set; }
+        public DateTime? Modified { get; set; }
 
-        public int Discount { get; set; }
+        public int? Discount { get; set; }
 
-        public DateTime DiscountFrom { get; set; }
+        public DateTime? DiscountFrom { get; set; }
 
-        public DateTime DiscountTo { get; set; }
+        public DateTime? DiscountTo { get; set; }
     }
 
     public class Supplier
@@ -187,5 +212,13 @@ namespace FashionStore.Models
         public virtual Order Order { get; set; }
 
         public virtual Product Product { get; set; }
+    }
+
+    public class StoreConfiguration
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "Recent new days")]
+        public int NDayNew { get; set; }
     }
 }

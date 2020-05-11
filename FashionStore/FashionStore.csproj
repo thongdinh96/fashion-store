@@ -213,6 +213,26 @@
     <Compile Include="Migrations\202005040717062_AddCollectionTable.designer.cs">
       <DependentUpon>202005040717062_AddCollectionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005100631207_EditCollection.cs" />
+    <Compile Include="Migrations\202005100631207_EditCollection.designer.cs">
+      <DependentUpon>202005100631207_EditCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005100638136_updateProductSchema.cs" />
+    <Compile Include="Migrations\202005100638136_updateProductSchema.designer.cs">
+      <DependentUpon>202005100638136_updateProductSchema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005101036338_AddStoreConfig.cs" />
+    <Compile Include="Migrations\202005101036338_AddStoreConfig.designer.cs">
+      <DependentUpon>202005101036338_AddStoreConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005101108481_AddTimeProduct.cs" />
+    <Compile Include="Migrations\202005101108481_AddTimeProduct.designer.cs">
+      <DependentUpon>202005101108481_AddTimeProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005101231015_ModifyProduct.cs" />
+    <Compile Include="Migrations\202005101231015_ModifyProduct.designer.cs">
+      <DependentUpon>202005101231015_ModifyProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -34099,7 +34119,9 @@
     <Content Include="node_modules\yeast\README.md" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
+    <None Include="Properties\PublishProfiles\FashionStore20200509105230 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.5.0.intellisense.js" />
+    <Content Include="Scripts\custom-product.js" />
     <Content Include="Scripts\jquery-3.5.0.js" />
     <Content Include="Scripts\jquery-3.5.0.min.js" />
     <Content Include="Scripts\jquery-3.5.0.slim.js" />
@@ -37478,6 +37500,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005040717062_AddCollectionTable.resx">
       <DependentUpon>202005040717062_AddCollectionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005100631207_EditCollection.resx">
+      <DependentUpon>202005100631207_EditCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005100638136_updateProductSchema.resx">
+      <DependentUpon>202005100638136_updateProductSchema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005101036338_AddStoreConfig.resx">
+      <DependentUpon>202005101036338_AddStoreConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005101108481_AddTimeProduct.resx">
+      <DependentUpon>202005101108481_AddTimeProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005101231015_ModifyProduct.resx">
+      <DependentUpon>202005101231015_ModifyProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

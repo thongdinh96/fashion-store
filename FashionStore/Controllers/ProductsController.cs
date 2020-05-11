@@ -10,16 +10,17 @@ using FashionStore.Models;
 
 namespace FashionStore.Controllers
 {
-    [Authorize]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Products
         [AdminFilter]
+        [Route("admin/product")]
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Category).Include(p => p.Collection).Include(p => p.Supplier);
+            ViewBag.ActiveItem = "productLst";
             return View(products.ToList());
         }
 
@@ -40,11 +41,22 @@ namespace FashionStore.Controllers
 
         // GET: Products/Create
         [AdminFilter]
+        [Route("admin/product/create")]
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName");
-            ViewBag.CollectionId = new SelectList(db.Collections, "CollectionId", "CollectionName");
+            Collection no = new Collection { CollectionId = 0, CollectionName = "No collection" };
+
+            List<Category> catesQuery =
+                        (from c in db.Categories
+                         where !(from ca in db.Categories
+                                 select ca.CategoryParentId)
+                                .Contains(c.CategoryId)
+                         select c).ToList();
+            ViewBag.CategoryId = new SelectList(catesQuery, "CategoryId", "CategoryName");
+            ViewBag.CollectionId = new SelectList(db.Collections, "CollectionId", "CollectionName", no);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "CompanyName");
+            ViewBag.ActiveItem = "productCreate";
+
             return View();
         }
 
