@@ -48,12 +48,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.UnitPrice)
                         </th>
-                        @*<th>
-                            @Html.DisplayNameFor(model => model.Size)
-                        </th>*@
-                        <th>
-                            @Html.DisplayNameFor(model => model.Color)
-                        </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Discount)
                         </th>
@@ -65,15 +59,6 @@
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.ProductAvailable)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Picture)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Ranking)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Note)
                         </th>
                         <th></th>
                     </tr>
@@ -97,12 +82,6 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.UnitPrice)
                             </td>
-                            @*<td>
-                                @Html.DisplayFor(modelItem => item.Size)
-                            </td>*@
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Color)
-                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Discount)
                             </td>
@@ -114,15 +93,6 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.ProductAvailable)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Picture)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Ranking)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Note)
                             </td>
                             <td class="edit-col">
                                 @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |

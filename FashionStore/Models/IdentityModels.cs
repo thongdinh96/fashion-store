@@ -49,5 +49,7 @@ namespace FashionStore.Models
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
         public DbSet<StoreConfiguration> StoreConfigurations { get; set; }
+
+        public DbSet<Size> Sizes { get; set; }
     }
 }

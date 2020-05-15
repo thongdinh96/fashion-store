@@ -576,6 +576,13 @@
     <Content Include="build\npm\DocsPublish.js" />
     <Content Include="build\npm\Plugins.js" />
     <Content Include="build\npm\Publish.js" />
+    <Content Include="css\background.png" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\material-wfont.css" />
+    <Content Include="css\material-wfont.min.css" />
+    <Content Include="css\print.css" />
+    <Content Include="css\ripples.min.css" />
+    <Content Include="css\stylesheet.css" />
     <Content Include="dist\css\adminlte.css" />
     <Content Include="dist\css\adminlte.min.css" />
     <Content Include="dist\css\alt\adminlte.components.css" />
@@ -34186,6 +34193,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\img\blog\latest-post\" />
+    <Folder Include="Images\Products\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

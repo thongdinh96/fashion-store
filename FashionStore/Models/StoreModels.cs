@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -42,6 +43,7 @@ namespace FashionStore.Models
 
         public string Color { get; set; }
 
+        [DefaultValue(false)]       
         public float? Discount { get; set; }
 
         [Display(Name = "Units in stock")]

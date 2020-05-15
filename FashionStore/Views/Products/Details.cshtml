@@ -1,139 +1,188 @@
-﻿@model FashionStore.Models.Product
-
+@using FashionStore.Models
+@model FashionStore.Models.Product
+@using FashionStore.Extensions
 @{
-    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Product detail";
 }
 
-<h2>Details</h2>
+<link href="~/css/custom.css" rel="stylesheet">
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </dt>
+    <script src="~/js/piklor.js"></script>
+    <script src="~/js/handlers.js"></script>*@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Product detail</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    @Html.Raw(Html.BuildBreadcrumbNavigation())
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.CategoryName)
-        </dd>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.CategoryName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Collection.CollectionName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Category.CategoryName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Collection.CollectionName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Collection.CollectionName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.CompanyName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Collection.CollectionName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.CompanyName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Supplier.CompanyName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Supplier.CompanyName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UnitPrice)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Size)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnitPrice)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Size)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sizes)
+                </dt>
+                @foreach (Size item in Model.Sizes)
+                {
+                    <span class="ml-2 font-weight-bold">
+                        @Html.DisplayName(item.SizeName.ToString())
+                    </span>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
+                    <span>
+                        @item.Amount.ToString()
+                    </span>
+                }
 
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Color)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Discount)
-        </dt>
+                <div class="color-picker">
+                    @{
+                        string[] colorArr = Model.Color.Split(';');
+                        foreach (string color in colorArr)
+                        {
+                            <div class="circle-color" data-col="@color" style="background-color: @color"></div>
+                        }
+                    }
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Discount)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Discount)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitsInStock)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Discount)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UnitsInStock)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitsOnOrder)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnitsInStock)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UnitsOnOrder)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnitsOnOrder)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductAvailable)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnitsOnOrder)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductAvailable)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductAvailable)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiscountAvailable)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductAvailable)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiscountAvailable)
-        </dd>
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.DiscountAvailable)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DiscountAvailable)
+                    </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.Picture)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ranking)
-        </dt>
+                <div class="row">
+                    @{
+                        string[] pictureArr = Model.Picture.Split(';');
+                        foreach (string pic in pictureArr)
+                        {
+                            <div class="col-md-3"><img title="@pic" src="~/Images/Products/@pic" class="img-fluid border border-dark" /></div>
+                        }
+                    }
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Ranking)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ranking)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Note)
-        </dt>
+                <dd>
+                    @for (int i = 0; i < Model.Ranking; i++)
+                    {
+                        <i class="fa fa-star text-warning"></i>
+                    }
+                    @for (int i = 0; i < 5 - Model.Ranking; i++)
+                    {
+                        <i class="fa fa-star"></i>
 
-        <dd>
-            @Html.DisplayFor(model => model.Note)
-        </dd>
+                    }
+                </dd>
 
-    </dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Note)
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.Note)
+                </dd>
+
+            </dl>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

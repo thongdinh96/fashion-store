@@ -1,154 +1,288 @@
-﻿@model FashionStore.Models.Product
+@using FashionStore.Extensions
+@model FashionStore.Models.Product
 
 @{
-    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Edit";
 }
+<link href="~/css/custom.css" rel="stylesheet">
+<style>
 
-<h2>Edit</h2>
+    #AddColor:hover {
+        cursor: pointer
+    }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ProductId)
+    .color-picker div {
+        text-align: center
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    #colorCon {
+        border: none
+    }
+</style>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<script src="https://cdn.ckeditor.com/ckeditor5/19.0.0/classic/ckeditor.js"></script>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SupplierId, "SupplierId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SupplierId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SupplierId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Size, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UnitsInStock, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitsInStock, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UnitsInStock, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UnitsOnOrder, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitsOnOrder, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UnitsOnOrder, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.ProductAvailable)
-                    @Html.ValidationMessageFor(model => model.ProductAvailable, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DiscountAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.DiscountAvailable)
-                    @Html.ValidationMessageFor(model => model.DiscountAvailable, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Picture, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ranking, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ranking, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ranking, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CollectionId, "CollectionId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CollectionId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CollectionId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+<script src="~/js/piklor.js"></script>
+<script src="~/js/handlers.js"></script>
+<script>
+    function preview_images() {
+        var files = document.querySelector('input[type=file]').files;
+        $("#image_preview").empty();
+        if (files) {
+            [].forEach.call(files, function (file) {
+                var reader = new FileReader();
+                reader.addEventListener("load", function () {
+                    $('#image_preview').append(`<div class='col-md-3'><img class='img-fluid border border-dark' title='${file.name}' id='${file.name}' src='` + this.result + "'></div>");
+                }, false);
+                reader.readAsDataURL(file);
+            });
+        }
+    }
+</script>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Edit product</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    @Html.Raw(Html.BuildBreadcrumbNavigation())
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
-}
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+            @using (Html.BeginForm("edit", "products", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SupplierId, "SupplierId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("SupplierId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SupplierId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                            @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-12">Select size (check to include size and input amount to product)</label>
+                        <div class="row">
+                            <label class="col-md-1 text-right align-self-lg-center">
+                                @Html.CheckBox("ckS", (bool)ViewBag.S, new { @id = "ckS" }) S
+                            </label>
+                            @Html.TextBox("SAmount", (int)ViewBag.SAmount, new { @readonly = !(bool)ViewBag.S, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "SAmount" })
+                            <label class="col-md-1 text-right align-self-lg-center">
+                                @Html.CheckBox("ckXS", (bool)ViewBag.XS, new { @id = "ckXS" }) XS
+                            </label>
+                            @Html.TextBox("XSAmount", (int)ViewBag.XSAmount, new { @readonly = !(bool)ViewBag.XS, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XSAmount" })
+                            <label class="col-md-1 text-right align-self-lg-center">
+                                @Html.CheckBox("ckM", (bool)ViewBag.M, new { @id = "ckM" }) M
+                            </label>
+                            @Html.TextBox("MAmount", (int)ViewBag.MAmount, new { @readonly = !(bool)ViewBag.M, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "MAmount" })
+                            <label class="col-md-1 text-right align-self-lg-center">
+                                @Html.CheckBox("ckL", (bool)ViewBag.L, new { @id = "ckL" }) L
+                            </label>
+                            @Html.TextBox("LAmount", (int)ViewBag.LAmount, new { @readonly = !(bool)ViewBag.L, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "LAmount" })
+                            <label class="col-md-1 text-right align-self-lg-center">
+                                @Html.CheckBox("ckXL", (bool)ViewBag.XL, new { @id = "ckXL" }) XL
+                            </label>
+                            @Html.TextBox("XLAmount", (int)ViewBag.XLAmount, new { @readonly = !(bool)ViewBag.XL, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XLAmount" })
+                            <label class="col-md-1 text-right align-self-lg-center">
+                                @Html.CheckBox("ckXXL", (bool)ViewBag.XXL, new { @id = "ckXXL" }) XXL
+                            </label>
+                            @Html.TextBox("XXLAmount", (int)ViewBag.XXLAmount, new { @readonly = !(bool)ViewBag.XXL, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XXLAmount" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="ml-2 control-label">Color&nbsp;&nbsp;<i id="AddColor" title="Add color" class="fas fa-plus"></i></label>
+                        <div class="color-picker">
+                        </div>
+                        <div id="colorCon" class="color-picker">
+                            @{
+                                string[] colorArr = Model.Color.Split(';');
+                                foreach (string co in colorArr)
+                                {
+                                    <div class="circle-color" title="Click to delete this color" data-col="@co" style="background-color: @co"></div>
+                                }
+                            }
+                        </div>
+                        @Html.HiddenFor(model => model.Color, new { @id = "colorHd" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control", @type = "number", @value = "0" } })
+                            @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UnitsInStock, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UnitsInStock, new { htmlAttributes = new { @class = "form-control", @value = "1" } })
+                            @Html.ValidationMessageFor(model => model.UnitsInStock, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProductAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(model => model.ProductAvailable, new { @checked = "checked" })
+                                @Html.ValidationMessageFor(model => model.ProductAvailable, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <input type="file" multiple class="form-control" id="images" name="images[]" onchange="preview_images();" />
+                                </div>
+                            </div>
+                            <div class="row" id="image_preview">
+                                @{
+                                    string[] pictureArr = Model.Picture.Split(';');
+                                    foreach (string pic in pictureArr)
+                                    {
+                                        <div class="col-md-3"><img title="@pic" src="~/Images/Products/@pic" class="img-fluid border border-dark" /></div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })*@
+                            <div id="editor"></div>
+                            @Html.TextAreaFor(model => model.Note, new { @id = "noteTxt", @class = "form-control" })
+                            @*@Html.HiddenFor(model => model.Note, new { @id = "noteHd" })*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CollectionId, "CollectionId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("CollectionId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CollectionId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Edit" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 </div>
+
+<script>
+
+    ClassicEditor
+        .create(document.querySelector('#noteTxt'))
+        .catch(error => {
+            console.error(error);
+        });
+    window.addEventListener("load", function () {
+        var pk = new Piklor(".color-picker", [
+            "#1abc9c"
+            , "#2ecc71"
+            , "#3498db"
+            , "#E881A6"
+            , "#9b59b6"
+            , "#34495e"
+            , "#16a085"
+            , "#27ae60"
+            , "#2980b9"
+            , "#8e44ad"
+            , "#2c3e50"
+            , "#f1c40f"
+            , "#e67e22"
+            , "#e74c3c"
+            , "#ecf0f1"
+            , "#95a5a6"
+            , "#f39c12"
+            , "#d35400"
+            , "#c0392b"
+            , "#bdc3c7"
+            , "#7f8c8d"
+        ], {
+            //open: ".picker-wrapper .btn"
+            open: "#AddColor"
+        })
+        //, wrapperEl = pk.getElm(".picker-wrapper")
+        //, header = pk.getElm("header")
+        //, footer = pk.getElm("footer")
+        //;
+
+        pk.colorChosen(function (col) {
+
+            var selectedColor = $(`<div class="circle-color" title="Click to delete this color" data-col="${col}" style="background-color: ${col}"></div>`)
+
+            $("#colorCon").append(selectedColor);
+            $("#colorHd").val($("#colorHd").val() + col + ';');
+            $("#AddColor").toggleClass("fa-plus").toggleClass("fa-minus");
+        });
+
+        $(document).on('click', ".circle-color", function () {
+            var colorCode = $(this).attr("data-col");
+            $("#colorHd").val($("#colorHd").val().replace(colorCode + ";", ""))
+            $(this).remove();
+        });
+
+    });
+
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

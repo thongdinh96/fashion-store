@@ -73,4 +73,10 @@ $(function () {
         });
     }
 
+    if ($("#AddColor").length !== 0) {
+        $(document).on("click", "#AddColor", function () {
+            $("#AddColor").toggleClass("fa-plus").toggleClass("fa-minus");
+
+        });
+    }
 });
