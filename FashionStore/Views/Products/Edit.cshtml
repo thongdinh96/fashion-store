@@ -66,7 +66,8 @@
             @using (Html.BeginForm("edit", "products", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
-
+                @Html.HiddenFor(model => model.ProductId)
+                @Html.HiddenFor(model => model.Created)
                 <div class="form-horizontal">
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -108,27 +109,81 @@
                             <label class="col-md-1 text-right align-self-lg-center">
                                 @Html.CheckBox("ckS", (bool)ViewBag.S, new { @id = "ckS" }) S
                             </label>
-                            @Html.TextBox("SAmount", (int)ViewBag.SAmount, new { @readonly = !(bool)ViewBag.S, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "SAmount" })
+                            @if ((bool)ViewBag.S)
+                            {
+                                @Html.TextBox("SAmount", (int)ViewBag.SAmount, new { @class = "form-control col-md-1", @type = "number", @min = 1, @id = "SAmount" })
+
+                            }
+                            else
+                            {
+                                @Html.TextBox("SAmount", (int)ViewBag.SAmount, new { @readonly = !(bool)ViewBag.S, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "SAmount" })
+
+                            }
                             <label class="col-md-1 text-right align-self-lg-center">
                                 @Html.CheckBox("ckXS", (bool)ViewBag.XS, new { @id = "ckXS" }) XS
                             </label>
-                            @Html.TextBox("XSAmount", (int)ViewBag.XSAmount, new { @readonly = !(bool)ViewBag.XS, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XSAmount" })
+                            @if ((bool)ViewBag.XS)
+                            {
+                                @Html.TextBox("XSAmount", (int)ViewBag.XSAmount, new { @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XSAmount" })
+
+                            }
+                            else
+                            {
+                                @Html.TextBox("XSAmount", (int)ViewBag.XSAmount, new { @readonly = !(bool)ViewBag.XS, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XSAmount" })
+                            }
+
                             <label class="col-md-1 text-right align-self-lg-center">
                                 @Html.CheckBox("ckM", (bool)ViewBag.M, new { @id = "ckM" }) M
                             </label>
-                            @Html.TextBox("MAmount", (int)ViewBag.MAmount, new { @readonly = !(bool)ViewBag.M, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "MAmount" })
+                            @if ((bool)ViewBag.M)
+                            {
+                                @Html.TextBox("MAmount", (int)ViewBag.MAmount, new { @class = "form-control col-md-1", @type = "number", @min = 1, @id = "MAmount" })
+
+                            }
+                            else
+                            {
+                                @Html.TextBox("MAmount", (int)ViewBag.MAmount, new { @readonly = !(bool)ViewBag.M, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "MAmount" })
+
+                            }
                             <label class="col-md-1 text-right align-self-lg-center">
                                 @Html.CheckBox("ckL", (bool)ViewBag.L, new { @id = "ckL" }) L
                             </label>
-                            @Html.TextBox("LAmount", (int)ViewBag.LAmount, new { @readonly = !(bool)ViewBag.L, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "LAmount" })
+                            @if ((bool)ViewBag.L)
+                            {
+                                @Html.TextBox("LAmount", (int)ViewBag.LAmount, new { @class = "form-control col-md-1", @type = "number", @min = 1, @id = "LAmount" })
+
+                            }
+                            else
+                            {
+                                @Html.TextBox("LAmount", (int)ViewBag.LAmount, new { @readonly = !(bool)ViewBag.L, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "LAmount" })
+
+                            }
                             <label class="col-md-1 text-right align-self-lg-center">
                                 @Html.CheckBox("ckXL", (bool)ViewBag.XL, new { @id = "ckXL" }) XL
                             </label>
-                            @Html.TextBox("XLAmount", (int)ViewBag.XLAmount, new { @readonly = !(bool)ViewBag.XL, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XLAmount" })
+                            @if ((bool)ViewBag.XL)
+                            {
+                                @Html.TextBox("XLAmount", (int)ViewBag.XLAmount, new { @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XLAmount" })
+
+                            }
+                            else
+                            {
+                                @Html.TextBox("XLAmount", (int)ViewBag.XLAmount, new { @readonly = !(bool)ViewBag.XL, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XLAmount" })
+
+                            }
                             <label class="col-md-1 text-right align-self-lg-center">
                                 @Html.CheckBox("ckXXL", (bool)ViewBag.XXL, new { @id = "ckXXL" }) XXL
                             </label>
-                            @Html.TextBox("XXLAmount", (int)ViewBag.XXLAmount, new { @readonly = !(bool)ViewBag.XXL, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XXLAmount" })
+                            @if ((bool)ViewBag.XXL)
+                            {
+                                @Html.TextBox("XXLAmount", (int)ViewBag.XXLAmount, new { @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XXLAmount" })
+
+                            }
+                            else
+                            {
+                                @Html.TextBox("XXLAmount", (int)ViewBag.XXLAmount, new { @readonly = !(bool)ViewBag.XXL, @class = "form-control col-md-1", @type = "number", @min = 1, @id = "XXLAmount" })
+
+                            }
                         </div>
                     </div>
 
@@ -138,7 +193,7 @@
                         </div>
                         <div id="colorCon" class="color-picker">
                             @{
-                                string[] colorArr = Model.Color.Split(';');
+                                string[] colorArr = Model.Color.TrimEnd(';').Split(';');
                                 foreach (string co in colorArr)
                                 {
                                     <div class="circle-color" title="Click to delete this color" data-col="@co" style="background-color: @co"></div>
@@ -198,7 +253,7 @@
                         @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @*@Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })*@
                             <div id="editor"></div>
                             @Html.TextAreaFor(model => model.Note, new { @id = "noteTxt", @class = "form-control" })
                             @*@Html.HiddenFor(model => model.Note, new { @id = "noteHd" })*@
@@ -268,10 +323,16 @@
 
             var selectedColor = $(`<div class="circle-color" title="Click to delete this color" data-col="${col}" style="background-color: ${col}"></div>`)
 
-            $("#colorCon").append(selectedColor);
-            $("#colorHd").val($("#colorHd").val() + col + ';');
+            if (!$("#colorHd").val().includes(col)) {
+                $("#colorCon").append(selectedColor);
+                $("#colorHd").val($("#colorHd").val() + col + ';');
+            }
             $("#AddColor").toggleClass("fa-plus").toggleClass("fa-minus");
         });
+
+        if (true) {
+
+        }
 
         $(document).on('click', ".circle-color", function () {
             var colorCode = $(this).attr("data-col");

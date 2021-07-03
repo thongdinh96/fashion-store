@@ -1,4 +1,4 @@
-﻿namespace FashionStore.Migrations
+namespace FashionStore.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -20,6 +20,7 @@
                 .Index(t => t.ProductId);
             
             DropColumn("dbo.Products", "Size");
+            AlterColumn("dbo.Products", "Ranking", c => c.Int(nullable: false, defaultValue: 0));
         }
         
         public override void Down()

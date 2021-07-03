@@ -12,8 +12,11 @@ namespace FashionStore.Controllers
     [Authorize]
     public class CategoryController : Controller
     {
+        #region Fields, Constants, Enums
         private ApplicationDbContext db = new ApplicationDbContext();
+        #endregion
 
+        #region Public methods
         // GET: Category
         [Route("admin/category")]
         [AdminFilter]
@@ -30,23 +33,6 @@ namespace FashionStore.Controllers
             //BuildCategoryTable(rootTblCate, row, lstCates);
             ViewBag.ActiveItem = "cateLstLink";
             return View(db.Categories.ToList());
-        }
-
-        private void BuildCategoryTable(HtmlNode node, HtmlNode row, List<Category> lstCates)
-        {
-            if (lstCates.Count == 0)
-            {
-                return;
-            }
-            // append row to node
-            if (row.Attributes["id"].Value == "0")
-            {
-                //node.SelectSingleNode
-            }
-            // find node in list if it have parent id in rootTbl
-            // or its parentid is 0
-            // remove that node in lst
-            // recursive with append node and row created
         }
 
         // GET: Category/Details/5
@@ -147,7 +133,7 @@ namespace FashionStore.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Category category = db.Categories.Include("CategoryParent").SingleOrDefault(ca => ca.CategoryId == id);
-            
+
             if (category == null)
             {
                 return HttpNotFound();
@@ -165,7 +151,29 @@ namespace FashionStore.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        #endregion
 
+        #region Private methods
+        private void BuildCategoryTable(HtmlNode node, HtmlNode row, List<Category> lstCates)
+        {
+            if (lstCates.Count == 0)
+            {
+                return;
+            }
+            // append row to node
+            if (row.Attributes["id"].Value == "0")
+            {
+                //node.SelectSingleNode
+            }
+            // find node in list if it have parent id in rootTbl
+            // or its parentid is 0
+            // remove that node in lst
+            // recursive with append node and row created
+        }
+
+        #endregion
+
+        #region Protected methods
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -174,5 +182,6 @@ namespace FashionStore.Controllers
             }
             base.Dispose(disposing);
         }
+        #endregion
     }
 }

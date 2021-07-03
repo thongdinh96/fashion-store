@@ -91,10 +91,13 @@
 
                 <div class="color-picker">
                     @{
-                        string[] colorArr = Model.Color.Split(';');
-                        foreach (string color in colorArr)
+                        if (Model.Color != null)
                         {
-                            <div class="circle-color" data-col="@color" style="background-color: @color"></div>
+                            string[] colorArr = Model.Color.TrimEnd(';').Split(';');
+                            foreach (string color in colorArr)
+                            {
+                                <div class="circle-color" data-col="@color" style="background-color: @color"></div>
+                            }
                         }
                     }
                 </div>
@@ -145,10 +148,14 @@
 
                 <div class="row">
                     @{
-                        string[] pictureArr = Model.Picture.Split(';');
-                        foreach (string pic in pictureArr)
+                        if (Model.Picture != null)
                         {
-                            <div class="col-md-3"><img title="@pic" src="~/Images/Products/@pic" class="img-fluid border border-dark" /></div>
+                            string[] pictureArr = Model.Picture.Split(';');
+                            foreach (string pic in pictureArr)
+                            {
+                                <div class="col-md-3"><img title="@pic" src="~/Images/Products/@pic" class="img-fluid border border-dark" /></div>
+                            }
+
                         }
                     }
                 </div>

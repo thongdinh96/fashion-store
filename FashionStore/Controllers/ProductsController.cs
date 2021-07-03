@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using FashionStore.Models;
 using System.Web;
 using System.IO;
+using System.Data.Entity.Migrations;
 
 namespace FashionStore.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -90,7 +92,6 @@ namespace FashionStore.Controllers
                     } 
                 }
                 product.Picture = product.Picture.TrimEnd(';');
-                product.Color = product.Color.TrimEnd(';');
                 product.Created = DateTime.Now;
                 if (product.CollectionId == 0)
                 {
@@ -98,7 +99,7 @@ namespace FashionStore.Controllers
                 }
                 db.Products.Add(product);
                 db.SaveChanges();
-                AddProductSizes(product.ProductId);
+                AddOrUpdateProductSizes(product.ProductId);
                 
                 return RedirectToAction("Index");
             }
@@ -109,8 +110,11 @@ namespace FashionStore.Controllers
             return View(product);
         }
 
-        private void AddProductSizes(int productId)
+        private void AddOrUpdateProductSizes(int productId)
         {
+            List<Size> updateSizeLst = new List<Size>();
+            List<Size> removeSizeLst = new List<Size>();
+            Size temp;
             if (Request.Form["ckS"] == "true,false")
             {
                 Size sSize = new Size()
@@ -119,7 +123,15 @@ namespace FashionStore.Controllers
                     SizeName = SizeEnum.S,
                     Amount = Convert.ToInt32(Request.Form["SAmount"])
                 };
-                db.Sizes.Add(sSize);
+                updateSizeLst.Add(sSize);
+            }
+            else
+            {
+                temp = db.Sizes.SingleOrDefault(s => s.ProductId == productId && s.SizeName == SizeEnum.S);
+                if (temp!=null)
+                {
+                    removeSizeLst.Add(temp);
+                }
             }
             if (Request.Form["ckXS"] == "true,false")
             {
@@ -129,7 +141,16 @@ namespace FashionStore.Controllers
                     SizeName = SizeEnum.XS,
                     Amount = Convert.ToInt32(Request.Form["XSAmount"])
                 };
-                db.Sizes.Add(xSSize);
+                updateSizeLst.Add(xSSize);
+
+            }
+            else
+            {
+                temp = db.Sizes.SingleOrDefault(s => s.ProductId == productId && s.SizeName == SizeEnum.XS);
+                if (temp != null)
+                {
+                    removeSizeLst.Add(temp);
+                }
             }
             if (Request.Form["ckM"] == "true,false")
             {
@@ -139,7 +160,16 @@ namespace FashionStore.Controllers
                     SizeName = SizeEnum.M,
                     Amount = Convert.ToInt32(Request.Form["MAmount"])
                 };
-                db.Sizes.Add(MSize);
+                updateSizeLst.Add(MSize);
+
+            }
+            else
+            {
+                temp = db.Sizes.SingleOrDefault(s => s.ProductId == productId && s.SizeName == SizeEnum.M);
+                if (temp != null)
+                {
+                    removeSizeLst.Add(temp);
+                }
             }
             if (Request.Form["ckL"] == "true,false")
             {
@@ -149,7 +179,16 @@ namespace FashionStore.Controllers
                     SizeName = SizeEnum.L,
                     Amount = Convert.ToInt32(Request.Form["LAmount"])
                 };
-                db.Sizes.Add(LSize);
+                updateSizeLst.Add(LSize);
+
+            }
+            else
+            {
+                temp = db.Sizes.SingleOrDefault(s => s.ProductId == productId && s.SizeName == SizeEnum.L);
+                if (temp != null)
+                {
+                    removeSizeLst.Add(temp);
+                }
             }
             if (Request.Form["ckXL"] == "true,false")
             {
@@ -159,7 +198,16 @@ namespace FashionStore.Controllers
                     SizeName = SizeEnum.XL,
                     Amount = Convert.ToInt32(Request.Form["XLAmount"])
                 };
-                db.Sizes.Add(XLSize);
+                updateSizeLst.Add(XLSize);
+
+            }
+            else
+            {
+                temp = db.Sizes.SingleOrDefault(s => s.ProductId == productId && s.SizeName == SizeEnum.XL);
+                if (temp != null)
+                {
+                    removeSizeLst.Add(temp);
+                }
             }
             if (Request.Form["ckXXL"] == "true,false")
             {
@@ -169,8 +217,18 @@ namespace FashionStore.Controllers
                     SizeName = SizeEnum.XXL,
                     Amount = Convert.ToInt32(Request.Form["XXLAmount"])
                 };
-                db.Sizes.Add(XXLSize);
+                updateSizeLst.Add(XXLSize);
             }
+            else
+            {
+                temp = db.Sizes.SingleOrDefault(s => s.ProductId == productId && s.SizeName == SizeEnum.XXL);
+                if (temp != null)
+                {
+                    removeSizeLst.Add(temp);
+                }
+            }
+            updateSizeLst.ForEach(size => db.Sizes.AddOrUpdate(s => new { s.SizeName, s.ProductId }, size));
+            removeSizeLst.ForEach(size => db.Sizes.Remove(size));
             db.SaveChanges();
         }
 
@@ -250,7 +308,10 @@ namespace FashionStore.Controllers
                 return HttpNotFound();
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
-            ViewBag.CollectionId = new SelectList(db.Collections, "CollectionId", "CollectionName", product.CollectionId);
+            Collection no = new Collection { CollectionId = 0, CollectionName = "No collection" };
+            List<Collection> collLst = db.Collections.ToList();
+            collLst.Insert(0, no);
+            ViewBag.CollectionId = new SelectList(collLst, "CollectionId", "CollectionName", product.CollectionId);
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "CompanyName", product.SupplierId);
             return View(product);
         }
@@ -260,7 +321,9 @@ namespace FashionStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,CategoryId,SupplierId,UnitPrice,Color,Discount,UnitsInStock,UnitsOnOrder,ProductAvailable,DiscountAvailable,Picture,Note,CollectionId")] Product product)
+        [Route("admin/products/edit/{id}")]
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "ProductId,ProductName,CategoryId,SupplierId,UnitPrice,Color,Discount,UnitsInStock,UnitsOnOrder,ProductAvailable,DiscountAvailable,Picture,Note,CollectionId,Created")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -277,7 +340,6 @@ namespace FashionStore.Controllers
                     }
                 }
                 product.Picture = product.Picture.TrimEnd(';');
-                product.Color = product.Color.TrimEnd(';');
                 product.Modified = DateTime.Now;
                 if (product.CollectionId == 0)
                 {
@@ -285,6 +347,7 @@ namespace FashionStore.Controllers
                 }
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
+                AddOrUpdateProductSizes(product.ProductId);
                 return RedirectToAction("Index");
             }
             List<Collection> collLst = db.Collections.ToList();

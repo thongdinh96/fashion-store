@@ -147,15 +147,15 @@
         <div class="sidebar">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link user-panel">
+                    <a href="#" class="nav-link user-panel" id="linkUser">
                         <div class="image">
                             <img src="https://localhost:44379/@au.AvarUrl" class="img-circle elevation-2" alt="User Image">
                         </div>
-                        <div class="info">
+                        <div class="info align-middle">
                             <span href="#" class="d-block">@au.UserName</span>
                         </div>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <ul class="nav nav-treeview d-none" id="userMenu">
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
@@ -286,6 +286,11 @@
 $("#@activeId").addClass("active");
     </script>
     <script src="~/Scripts/custom-product.js"></script>
+    <script>
+        $("#linkUser").click(function () {
+            $("#userMenu").removeClass("d-none");
+        });
+    </script>
     @RenderSection("scripts", required: false)
 
 </body>

@@ -510,9 +510,8 @@ namespace FashionStore.Migrations
                 //    UnitPrice = 90
                 //}
             };
-            products.ForEach(pro => context.Products.AddOrUpdate(p => new { p.ProductName, p.CategoryId, p.CollectionId }, pro));
+            context.Products.ToList().ForEach(p => p.Ranking = 0);
             context.SaveChanges();
-
         }
     }
 }

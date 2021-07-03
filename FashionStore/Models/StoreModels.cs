@@ -149,6 +149,11 @@ namespace FashionStore.Models
 
         public bool Active { get; set; }
 
+        /// <summary>
+        /// Level trên cây menu, bắt đầu từ 1 (0 là root node)
+        /// </summary>
+        public byte CategoryLevel { get; set; }
+
         public virtual Category CategoryParent { get; set; }
     }
 

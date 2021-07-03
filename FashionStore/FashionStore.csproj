@@ -27,7 +27,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -196,6 +196,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
+    <Compile Include="Filters\CommonFilter.cs" />
     <Compile Include="Filters\AdminFilter.cs" />
     <Compile Include="Filters\AdminLoginFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -232,6 +233,10 @@
     <Compile Include="Migrations\202005101231015_ModifyProduct.cs" />
     <Compile Include="Migrations\202005101231015_ModifyProduct.designer.cs">
       <DependentUpon>202005101231015_ModifyProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010112346261_AddNewColumnCategory.cs" />
+    <Compile Include="Migrations\202010112346261_AddNewColumnCategory.designer.cs">
+      <DependentUpon>202010112346261_AddNewColumnCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -37523,6 +37528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005101231015_ModifyProduct.resx">
       <DependentUpon>202005101231015_ModifyProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010112346261_AddNewColumnCategory.resx">
+      <DependentUpon>202010112346261_AddNewColumnCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
